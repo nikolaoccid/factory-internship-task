@@ -24,37 +24,35 @@ function enableButtons(){
 }
 
 function sliderLeft(selector) {
-  // $(`.${selector} > img:first-child`).animate({
-  //   marginRight: $(`.${selector} > img:first-child`).width()
-  // }, {duration: 500, queue: false}).promise().then(()=> {
-  //     $(`.${selector} > img:nth-child(1)`).css({
-  //       marginRight: 0
-  //     });
-
+  //Copy last image and append it hidden to the beginning of the slider
   $(`.${selector}`).prepend($(`.${selector} > img:last-child`));
-  $(`.${selector} > img:first-child`).hide().css({marginRight: -($(`.${selector} > img:last-child`).width() - 20)});
-  $(`.${selector} > img:first-child`).animate({
-    marginRight: 0
-  }, {
-    duration: 1600,
-    queue: false
-  }, ()=>{
-    // $(`.${selector} > img:first-child`).delay(1400).fadeIn({duration: 3000, queue: false});
-  }).fadeIn(2500,() => {
-    $(`.${selector} > img:first-child`).delay(800);
-  } ).promise().then(()=>{
+  $(`.${selector} > img:first-child`).hide();
 
-    enableButtons();
+  //Move second image to the left, so it makes space for the first image
+  $(`.${selector} > img:nth-child(2)`).animate({
+    marginRight: ($(`.${selector} > img:first-child`).width() / 2 + 20),
+  }, 1000).promise().then(() => {
+
+    //Fade in picture added at the beginning, reset margin-right for second image and enable buttons
+    $(`.${selector} > img:first-child`).fadeIn({duration: 1000, start:() => {
+      $(`.${selector} > img:nth-child(2)`).css({marginRight: 0});
+    }}).promise().then(()=>{
+      enableButtons();
+    });
+
   });
-
 }
 
 function sliderRight(selector){
+  //Copy first image and add it last in the slider
   $(`.${selector}`).append($(`.${selector} > img:first-child`).clone());
 
+  //Move first image out of the viewport
   $(`.${selector} > img:first-child`).animate({
     marginRight: -$(`.${selector} > img:first-child`).width() - 10
   }, { duration: 1000, queue: false }).promise().done(() => {
+
+    //Remove first image from the slider and enable buttons afterwards
     $(`.${selector} > img:first-child`).remove();
   }).promise().then(()=>{
     enableButtons();
@@ -74,7 +72,7 @@ function slideRight(){
   sliderRight('bottom-slider');
   // enableButtons() function called after the animation;
 }
-$(document).ready(function() {
+$(window).ready(function() {
   extendSlider('top-slider');
   extendSlider('bottom-slider');
   $('.left-button').on('click', slideLeft);

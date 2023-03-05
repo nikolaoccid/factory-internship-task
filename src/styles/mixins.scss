@@ -1,0 +1,20 @@
+@mixin textStyle($fontFamily, $color,$margin, $fontSize, $lineHeight, $letterSpacing) {
+  font-family: $fontFamily;
+  color: $color;
+  margin: $margin;
+  font-size: $fontSize;
+  line-height: $lineHeight;
+  letter-spacing: $letterSpacing;
+}
+
+@mixin borderSolid($width, $color ) {
+  border: $width solid $color;
+}
+
+@mixin bgImage($url, $color) {
+  @include borderSolid(1px, $color);
+
+  background-image: url($url);
+  background-repeat: no-repeat;
+  background-position: center;
+}
