@@ -73,8 +73,8 @@ function slideRight(){
   // enableButtons() function called after the animation;
 }
 $(document).ready(() => {
-  extendSlider('top-slider');
-  extendSlider('bottom-slider');
+  // extendSlider('top-slider');
+  // extendSlider('bottom-slider');
   $('.left-button').on('click', slideLeft);
   $('.right-button').on('click', slideRight);
 
