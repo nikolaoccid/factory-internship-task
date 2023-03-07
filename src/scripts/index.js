@@ -1,18 +1,6 @@
 import '../styles/index.scss';
 import $ from 'jquery';
 
-function extendSlider(selector){
-  const viewportWidth = window.innerWidth;
-  const textareaWidth = $('.textarea').width();
-  let sliderDivWidth = $(`.${selector}`).width();
-  let leftScreenSpace = viewportWidth - textareaWidth - sliderDivWidth;
-
-  if (leftScreenSpace > 0) {
-    const childElements = $(`.${selector}`).children().clone();
-    $(`.${selector}`).append(childElements);
-    extendSlider();
-  }
-}
 function disableButtons(){
   $('.left-button').prop('disabled', true);
   $('.right-button').prop('disabled', true);
@@ -72,9 +60,7 @@ function slideRight(){
   sliderRight('bottom-slider');
   // enableButtons() function called after the animation;
 }
-$(window).ready(function() {
-  extendSlider('top-slider');
-  extendSlider('bottom-slider');
+$(document).ready(() => {
   $('.left-button').on('click', slideLeft);
   $('.right-button').on('click', slideRight);
 
