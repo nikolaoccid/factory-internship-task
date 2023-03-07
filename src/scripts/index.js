@@ -27,7 +27,6 @@ function sliderLeft(selector) {
     }}).promise().then(()=>{
       enableButtons();
     });
-
   });
 }
 
@@ -47,7 +46,6 @@ function sliderRight(selector){
   });
 }
 
-
 function slideLeft(){
   disableButtons();
   sliderLeft('top-slider');
@@ -63,5 +61,4 @@ function slideRight(){
 $(document).ready(() => {
   $('.left-button').on('click', slideLeft);
   $('.right-button').on('click', slideRight);
-
 });
