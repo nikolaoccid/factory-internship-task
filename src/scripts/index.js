@@ -10,7 +10,7 @@ function extendSlider(selector){
   if (leftScreenSpace > 0) {
     const childElements = $(`.${selector}`).children().clone();
     $(`.${selector}`).append(childElements);
-    extendSlider();
+    extendSlider(selector);
   }
 }
 function disableButtons(){
@@ -72,7 +72,7 @@ function slideRight(){
   sliderRight('bottom-slider');
   // enableButtons() function called after the animation;
 }
-window.addEventListener("load", function(){
+$(document).ready(() => {
   extendSlider('top-slider');
   extendSlider('bottom-slider');
   $('.left-button').on('click', slideLeft);

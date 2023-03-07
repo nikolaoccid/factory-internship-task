@@ -9,10 +9,7 @@ html {
 
 body {
   height: 100%;
-  margin: 0 0 0 auto;
-  max-width: $mainContainerWidth;
-  justify-content: space-between;
-  flex-direction: column;
+  margin: 0;
 }
 
 /* Layout */
@@ -20,6 +17,13 @@ section,
 div,
 body {
   display: flex;
+  justify-content: flex-end;
+}
+
+.container {
+  max-width: $mainContainerWidth;
+  justify-content: space-between;
+  flex-direction: column;
 }
 
 .row-direction {
@@ -36,6 +40,7 @@ body {
   min-width: 300px;
   margin-left: 20px;
   gap: 20px;
+  justify-content: flex-start;
 }
 
 h1 {
@@ -69,6 +74,11 @@ p {
   margin-left: 115px;
 }
 
+/* Image styling */
+img {
+  border-radius: 5px;
+}
+
 /* Buttons styling */
 button {
   background: none;
@@ -84,6 +94,7 @@ button {
 .buttons {
   flex-direction: column;
   margin-left: 100px;
+  justify-content: flex-start;
   gap: 10px;
 }
 
@@ -118,6 +129,7 @@ button {
   min-height: 100px;
   background: $headerFooterContainerBgColor;
   border-radius: 0 0 5px 5px;
+  justify-content: flex-start;
 }
 
 .header-left-container {
@@ -132,8 +144,8 @@ button {
 /* Footer styling */
 .slider-footer {
   min-height: 100px;
-  margin-top: 60px;
   background: $headerFooterContainerBgColor;
   border-radius: 5px 5px 0 0;
   align-items: center;
+  justify-content: flex-start;
 }
