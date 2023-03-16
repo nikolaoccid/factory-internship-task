@@ -14,10 +14,15 @@ body {
 
 /* Layout */
 section,
-div,
-body {
+div {
   display: flex;
   justify-content: flex-end;
+}
+
+.outer-container {
+  display: flex;
+  height: 100%;
+  justify-content: center;
 }
 
 .container {
@@ -44,11 +49,11 @@ body {
 }
 
 h1 {
-  @include textStyle("Source Sans Pro", $titleColor, 0, 32px, 38px, -0.2px);
+  @include textStyle(Source Sans Pro, $titleColor, 0, 32px, 38px, -0.2px);
 }
 
 p {
-  @include textStyle("Source Sans Pro", $paragraphColor, 0, 18px, 26px, -0.2px);
+  @include textStyle(Source Sans Pro, $paragraphColor, 0, 18px, 26px, -0.2px);
 
   align-items: center;
 }
