@@ -2,6 +2,8 @@
 
 Factory slider is a task that is implemented using HTML, CSS, JavaScript and jQuery technologies.
 
+## [Live demo link](https://nikoc.uk/factory-slider-internship-task/)
+
 ### Installation
 
 ```sh
